@@ -1,0 +1,46 @@
+<div class="container container-margin-top">
+    <form [formGroup]="rForm" (ngSubmit)="formSubmit()">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" formControlName="username" id="name">
+            <span *ngIf="!rForm.controls['username'].valid && rForm.controls['username'].touched">Please enter
+                name</span>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" formControlName="useremail">
+            <span>Please enter valid email</span>
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <select class="form-select" formControlName="usergender">
+                <option value="m">Male</option>
+                <option value="f">Female</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="salary">Salary</label>
+            <input type="number" class="form-control" formControlName="usersalary">
+        </div>
+        <div class="form-group" *ngIf="place">
+            <label for="salary">Salary</label>
+            <input formControlName="place" class="form-control" placeholder="Add Place">
+        </div>
+        <div class="form-group form-button-margin">
+            <button type="button" class="btn btn-primary" (click)="addControl()">add Place</button>
+        </div>
+        <div formArrayName="address">
+            <div class="form-group form-button-margin">
+                <button type="button" class="btn btn-primary" (click)="addAddress()">add Address</button>
+            </div>
+        
+            <div class="form-group" *ngFor="let ad of addresslist; let i = index">
+                <label for="salary">Address {{i}}</label>
+                <input [formControlName]="i" class="form-control" placeholder="Address">
+            </div>
+        </div>
+        <div class="form-group form-button-margin">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>

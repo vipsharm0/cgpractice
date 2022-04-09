@@ -1,0 +1,13 @@
+.container-margin-top, .form-button-margin{
+    margin-top: 20px;
+}
+
+#email.ng-touched.ng-invalid{
+    border: 1px solid red;
+}
+#name.ng-touched.ng-invalid{
+    border: 1px solid red;
+}
+#gender.ng-touched.ng-invalid{
+    border: 1px solid red;
+}
